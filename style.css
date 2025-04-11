@@ -1,0 +1,227 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff; /* Sfondo bianco */
+}
+
+/* Header */
+.spedizione-banner {
+    background-color: #f5e8dc; /* Colore beige */
+    padding: 10px 20px; /* Spaziatura interna */
+    margin: 10px auto; /* Distacco tra il beige e il marrone */
+    border-radius: 15px; /* Angoli arrotondati */
+    list-style: none; /* Rimuove i punti elenco */
+    display: flex;
+    justify-content: center;
+    gap: 1px; /* Spaziatura tra gli elementi */
+    max-width: 98%; /* Larghezza massima relativa */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    font-size: 12px; /* Dimensione del font più piccola */
+    color: #555; /* Colore del testo */
+    text-transform: uppercase; /* Testo in maiuscolo */
+    letter-spacing: 1px; /* Spaziatura tra le lettere */
+}
+
+header h2 {
+    font-size: 14px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.menu-container {
+    background-color: #5a2d2d; /* Colore marrone scuro */
+    padding: 20px 0; /* Spaziatura verticale */
+    width: 100%; /* Larghezza completa della pagina */
+    display: flex; /* Layout flessibile */
+    align-items: center; /* Allinea verticalmente gli elementi */
+    justify-content: space-between; /* Spaziatura tra gli elementi */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+}
+
+.menu-container ul {
+    list-style: none; /* Rimuove i punti elenco */
+    display: flex;
+    justify-content:left;
+    gap: 30px; /* Spaziatura tra gli elementi */
+    margin: 0; /* Rimuove margini di default */
+    padding-left: 20px; /* Aggiunge spaziatura a sinistra */
+}
+
+.menu-container ul li a {
+    text-decoration: none;
+    color: #fff; /* Colore del testo bianco */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+.menu-logo {
+    text-align: center;
+}
+
+.menu-logo img {
+    height: 40px; /* Altezza del logo */
+    object-fit: contain; /* Mantiene le proporzioni */
+}
+
+.menu-right {
+    display: flex;
+    gap: 20px; /* Spaziatura tra le icone */
+    padding-right: 20px; /* Spaziatura a destra */
+}
+
+.menu-right .icon {
+    height: 24px; /* Altezza delle icone */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+}
+.image-container {
+    position: relative; /* Necessario per posizionare il testo sopra l'immagine */
+    width: 98%; /* Larghezza completa */
+    height: 78vh; /* Altezza pari all'intera altezza dello schermo */
+    border-radius: 15px; /* Bordi arrotondati */
+    overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
+    margin: 0px auto; /* Margine per distanziare il rettangolo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+}
+
+.image-container img {
+    width: 100%; /* L'immagine occupa tutta la larghezza */
+    height: 100%; /* L'immagine occupa tutta l'altezza */
+    object-fit: cover; /* Adatta l'immagine senza distorcerla */
+}
+
+.image-text {
+    position: absolute; /* Posiziona il testo sopra l'immagine */
+    bottom: 60px; /* Posiziona il testo in basso */
+    left: 30px; /* Posiziona il testo a sinistra */
+    color: #fff; /* Colore del testo bianco */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
+}
+
+.image-text .subtitle {
+    font-size: 16px; /* Font più piccolo per il sottotitolo */
+    margin-bottom: 1%; /* Spaziatura sotto il sottotitolo */
+    color: #5a2d2d; /* Colore marrone scuro */
+}
+
+.image-text .title {
+    font-size: 27px; /* Font più grande per il titolo */
+    font-weight: bold;
+    margin-bottom: 20px; /* Spaziatura sotto il titolo */
+    color: #5a2d2d; /* Colore marrone scuro */
+}
+
+.image-text .btn {
+    display: inline-block;
+    padding: 5px 30px; /* Spaziatura interna */
+    background-color: #f5e8dc; /* Colore beige */
+    color: #5a2d2d; /* Colore del testo marrone scuro */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-weight: normal;
+    border-radius: 15px; /* Bordi arrotondati */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
+    transition: background-color 0.3s ease;
+}
+
+.about-container {
+    background-color: #f5e8dc; /* Colore beige */
+    padding: 20px; /* Spaziatura interna */
+    margin: 20px auto; /* Distacco dall'immagine e centratura */
+    border-radius: 15px; /* Bordi arrotondati */
+    max-width: 98%; /* Larghezza massima relativa */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    font-size: 16px; /* Dimensione del testo */
+    color: #5a2d2d; /* Colore del testo marrone scuro */
+    line-height: 1.6; /* Altezza della linea per migliorare la leggibilità */
+    text-align: Center; /* Allinea il testo su entrambi i lati */
+}
+.grafica-section {
+    margin: 20px auto; /* Distacco dal rettangolo precedente e centratura */
+    max-width: 98%; /* Larghezza massima relativa */
+    border-radius: 15px; /* Bordi arrotondati */
+    overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+}
+
+.grafica-section img {
+    width: 100%; /* L'immagine occupa tutta la larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni */
+    display: block; /* Rimuove eventuali spazi indesiderati sotto l'immagine */
+}
+.prodotti-banner {
+    background-color: #5a2d2d; /* Colore beige */
+    padding: 10px 20px; /* Spaziatura interna */
+    margin: 10px auto; /* Distacco dal resto del contenuto */
+    border-radius: 15px; /* Bordi arrotondati */
+    text-align: center; /* Centra il testo */
+    font-size: 15px; /* Dimensione del font */
+    color: #fff; /* Colore del testo */
+    text-transform: uppercase; /* Testo in maiuscolo */
+    letter-spacing: 1px; /* Spaziatura tra le lettere */
+    max-width: 98%; /* Larghezza massima relativa */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+}
+.prodotti-grid {
+    display: flex; /* Disposizione orizzontale dei prodotti */
+    justify-content: space-between; /* Spaziatura uniforme tra i prodotti */
+    align-items: flex-start; /* Allinea i prodotti in alto */
+    margin: 20px auto; /* Distacco dal resto del contenuto */
+    max-width: 90%; /* Larghezza massima relativa */
+    gap: 20px; /* Spaziatura tra i prodotti */
+}
+
+.prodotti-box {
+    width: 30%; /* Ogni prodotto occupa il 30% della larghezza */
+    text-align: center; /* Centra il contenuto */
+    position: relative; /* Necessario per posizionare la descrizione sopra l'immagine */
+}
+
+.prodotti-box img {
+    width: 100%; /* L'immagine occupa tutta la larghezza del contenitore */
+    aspect-ratio: 1 / 1; /* Mantiene il rapporto 1:1 per creare un quadrato */
+    border-radius: 15px; /* Bordi arrotondati */
+    object-fit: cover; /* Adatta l'immagine senza distorcerla */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    display: block; /* Rimuove eventuali spazi indesiderati sotto l'immagine */
+}
+
+.descrizione {
+    position: absolute; /* Posiziona la descrizione sopra l'immagine */
+    top: 370px; /* Posiziona il rettangolo sopra l'immagine */
+    left: 50%; /* Centra il rettangolo orizzontalmente */
+    transform: translateX(-50%); /* Centra il rettangolo rispetto al contenitore */
+    width: 90%; /* Rendi il contenitore più lungo */
+    background-color: #fff; /* Colore bianco */
+    border-radius: 15px; /* Bordi arrotondati */
+    padding: 5px 10px; /* Riduci l'altezza del contenitore */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    z-index: 1; /* Porta il rettangolo sopra l'immagine */
+    text-align: center; /* Centra il testo */
+}
+
+.btn-descrizione {
+    text-decoration: none; /* Rimuove la sottolineatura */
+    color: inherit; /* Mantiene il colore del testo */
+    display: block; /* Rende cliccabile l'intero rettangolo */
+}
+
+.descrizione h3 {
+    font-size: 16px; /* Dimensione del titolo */
+    color: #5a2d2d; /* Colore marrone scuro */
+    margin-bottom: 5px; /* Spaziatura sotto il titolo */
+}
+
+.descrizione p {
+    font-size: 14px; /* Dimensione del testo */
+    color: #555; /* Colore del testo */
+    line-height: 1.5; /* Altezza della linea per migliorare la leggibilità */
+}
