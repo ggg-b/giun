@@ -24,7 +24,7 @@ body {
     gap: 1px; /* Spaziatura tra gli elementi */
     max-width: 98%; /* Larghezza massima relativa */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
-    font-size: 12px; /* Dimensione del font più piccola */
+    font-size: 15px; /* Dimensione del font più piccola */
     color: #555; /* Colore del testo */
     text-transform: uppercase; /* Testo in maiuscolo */
     letter-spacing: 1px; /* Spaziatura tra le lettere */
@@ -196,7 +196,7 @@ header h2 {
 
 .descrizione {
     position: absolute; /* Posiziona la descrizione sopra l'immagine */
-    top: 370px; /* Posiziona il rettangolo sopra l'immagine */
+    top: 377px; /* Posiziona il rettangolo sopra l'immagine */
     left: 50%; /* Centra il rettangolo orizzontalmente */
     transform: translateX(-50%); /* Centra il rettangolo rispetto al contenitore */
     width: 90%; /* Rendi il contenitore più lungo */
@@ -217,7 +217,7 @@ header h2 {
 .descrizione h3 {
     font-size: 16px; /* Dimensione del titolo */
     color: #5a2d2d; /* Colore marrone scuro */
-    margin-bottom: 5px; /* Spaziatura sotto il titolo */
+    margin-bottom: -1px; /* Spaziatura sotto il titolo */
 }
 
 .descrizione p {
