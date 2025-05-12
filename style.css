@@ -11,22 +11,70 @@ body {
     color: #333;
     background-color: #fff; /* Sfondo bianco */
 }
-
-/* Header */
-.spedizione-banner {
-    background-color: #f5e8dc; /* Colore beige */
-    padding: 10px 20px; /* Spaziatura interna */
-    margin: 0 auto; /* Centra il rettangolo */
-    border-radius: 15px; /* Angoli arrotondati */
-    text-align: center; /* Centra il testo */
-    font-size: 15px; /* Dimensione del font */
-    color: #555; /* Colore del testo */
-    text-transform: uppercase; /* Testo in maiuscolo */
-    letter-spacing: 1px; /* Spaziatura tra le lettere */
-    max-width: 98%; /* Larghezza massima relativa */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+html {
+    scroll-behavior: smooth; /* Scorrimento fluido */
 }
 
+/* Header */
+
+/* Stile per il burger menu */
+.menu-toggle {
+    display: none; /* Nascondi il burger menu di default */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff; /* Colore delle linee */
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Nascondi il menu su dispositivi piccoli */
+.menu-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostra il burger menu */
+    }
+
+    .menu-links {
+        display: none; /* Nascondi il menu di default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Posiziona sotto la barra */
+        right: 0;
+        background-color: #5a2d2d; /* Colore di sfondo */
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-links.active {
+        display: flex; /* Mostra il menu quando attivo */
+    }
+
+    .menu-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-links li a {
+        color: #fff; /* Colore del testo */
+        text-decoration: none;
+        font-size: 18px;
+    }
+}
 .menu-container {
     position: fixed; /* Rende la barra "appiccicosa" */
     top: 0; /* Si ferma in alto quando il rettangolo beige viene superato */
@@ -36,22 +84,24 @@ body {
     background-color: #5a2d2d; /* Colore marrone scuro */
     padding: 20px 0; /* Spaziatura verticale */
     display: flex; /* Layout flessibile */
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo se lo spazio non è sufficiente */
     align-items: center; /* Allinea verticalmente gli elementi */
     justify-content: space-between; /* Spaziatura tra gli elementi */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
 }
 
 body {
-    margin-top: 80px; /* Aggiungi uno spazio per evitare sovrapposizioni */
+    margin-top: 105px; /* Aggiungi uno spazio per evitare sovrapposizioni */
 }
 
 .menu-container ul {
     list-style: none; /* Rimuove i punti elenco */
     display: flex;
-    justify-content:left;
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo se lo spazio non è sufficiente */
+    justify-content: flex-end; /* Sposta gli elementi verso destra */
     gap: 40px; /* Spaziatura tra gli elementi */
     margin: 0; /* Rimuove margini di default */
-    padding-left: 20px; /* Aggiunge spaziatura a sinistra */
+    padding-right: 50px; /* Aggiunge spaziatura a destra */
 }
 
 .menu-container ul li a {
@@ -59,11 +109,13 @@ body {
     color: #fff; /* Colore del testo bianco */
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 1,60vh;
     transition: color 0.3s ease;
 }
 .menu-logo {
-    text-align: center;
+    text-align: right; /* Allinea il logo a destra */
+    padding-right: 20px; /* Aggiunge spaziatura a destra */
+    padding-left: 20px; /* Aggiunge spaziatura a sinistra */
 }
 
 .menu-logo img {
@@ -71,45 +123,13 @@ body {
     object-fit: contain; /* Mantiene le proporzioni */
 }
 
-.menu-right {
-    display: flex;
-    gap: 20px; /* Spaziatura tra le icone */
-    padding-right: 20px; /* Spaziatura a destra */
-}
-
-.menu-right .icon {
-    height: 24px; /* Altezza delle icone */
-    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-
-    @media (max-width: 768px) {
-        .menu-container {
-            flex-direction: column; /* Disposizione verticale per schermi piccoli */
-            padding: 10px 0; /* Riduci la spaziatura verticale */
-        }
-    
-        .menu-container ul {
-            flex-direction: column; /* Disposizione verticale per il menu */
-            gap: 10px; /* Riduci la spaziatura tra gli elementi */
-            padding-left: 0; /* Rimuovi la spaziatura a sinistra */
-        }
-    
-        .menu-logo img {
-            height: 30px; /* Riduci l'altezza del logo */
-        }
-    
-        .menu-right {
-            gap: 10px; /* Riduci la spaziatura tra le icone */
-            padding-right: 0; /* Rimuovi la spaziatura a destra */
-        }
-    }
-}
 .image-container {
     position: relative; /* Necessario per posizionare il testo sopra l'immagine */
     width: 98%; /* Larghezza completa */
-    height: 78vh; /* Altezza pari all'intera altezza dello schermo */
+    height: 78vh; /* Altezza relativa allo schermo */
     border-radius: 15px; /* Bordi arrotondati */
     overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
-    margin: 0px auto; /* Margine per distanziare il rettangolo */
+    margin: 0px auto; /* Aggiunge uno spazio sopra e centra il contenitore */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
 }
 
@@ -121,20 +141,21 @@ body {
 
 .image-text {
     position: absolute; /* Posiziona il testo sopra l'immagine */
-    bottom: 60px; /* Posiziona il testo in basso */
-    left: 30px; /* Posiziona il testo a sinistra */
+    bottom: 10%; /* Posiziona il testo in basso */
+    left: 3%; /* Posiziona il testo a sinistra */
+    transform: translateX(3%); /* Centra il testo rispetto al contenitore */
     color: #fff; /* Colore del testo bianco */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
 }
 
 .image-text .subtitle {
-    font-size: 16px; /* Font più piccolo per il sottotitolo */
+    font-size: 2vh; /* Font più piccolo per il sottotitolo */
     margin-bottom: 1%; /* Spaziatura sotto il sottotitolo */
-    color: #5a2d2d; /* Colore marrone scuro */
+    color: #544e4e; /* Colore marrone scuro */
 }
 
 .image-text .title {
-    font-size: 27px; /* Font più grande per il titolo */
+    font-size: 3vh; /* Font più grande per il titolo */
     font-weight: bold;
     margin-bottom: 20px; /* Spaziatura sotto il titolo */
     color: #5a2d2d; /* Colore marrone scuro */
@@ -153,9 +174,8 @@ body {
     transition: background-color 0.3s ease;
 }
 .btn:hover {
-    background-color: #faece2; /* Cambia il colore di sfondo al passaggio del mouse */
-    color: #5a2d2d; /* Cambia il colore del testo */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transizione fluida */
+    background-color: #7d746e; /* Cambia il colore di sfondo al passaggio del mouse */
+    color: #fff; /* Cambia il colore del testo */
 }
 
 .about-container {
@@ -165,7 +185,7 @@ body {
     border-radius: 15px; /* Bordi arrotondati */
     max-width: 98%; /* Larghezza massima relativa */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
-    font-size: 16px; /* Dimensione del testo */
+    font-size: 2vh; /* Dimensione del testo */
     color: #5a2d2d; /* Colore del testo marrone scuro */
     line-height: 1.6; /* Altezza della linea per migliorare la leggibilità */
     text-align: Center; /* Allinea il testo su entrambi i lati */
@@ -189,7 +209,7 @@ body {
     margin: 10px auto; /* Distacco dal resto del contenuto */
     border-radius: 15px; /* Bordi arrotondati */
     text-align: center; /* Centra il testo */
-    font-size: 15px; /* Dimensione del font */
+    font-size: 2vh; /* Dimensione del font */
     color: #fff; /* Colore del testo */
     text-transform: uppercase; /* Testo in maiuscolo */
     letter-spacing: 1px; /* Spaziatura tra le lettere */
@@ -242,24 +262,90 @@ body {
 }
 
 .descrizione h3 {
-    font-size: 16px; /* Dimensione del titolo */
+    font-size: 2vh; /* Dimensione del titolo */
     color: #5a2d2d; /* Colore marrone scuro */
     margin-bottom: -1px; /* Spaziatura sotto il titolo */
 }
 
 .descrizione p {
-    font-size: 14px; /* Dimensione del testo */
+    font-size: 2vh; /* Dimensione del testo */
     color: #555; /* Colore del testo */
     line-height: 1.5; /* Altezza della linea per migliorare la leggibilità */
 }
-
-.frase-centrata {
+/* Stile per il contenitore dei contatti */
+.contatti-container {
+    background-color: #fff; /* Sfondo bianco */
+    padding: 20px; /* Spaziatura interna */
+    margin: 20px auto; /* Centra il rettangolo e aggiunge spazio sopra e sotto */
+    border-radius: 15px; /* Angoli arrotondati */
+    max-width: 98%; /* Larghezza massima relativa */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
     text-align: center; /* Centra il testo */
-    font-style: italic; /* Testo in corsivo */
-    font-size: 24px; /* Dimensione del font */
+    font-size: 2vh; /* Dimensione del testo */
+    color: #5a2d2d; /* Colore del testo marrone scuro */
+    line-height: 1.6; /* Migliora la leggibilità */
+}
+
+/* Stile per i campi del modulo */
+.contatti-container .form-group {
+    margin-bottom: 15px; /* Spaziatura tra i campi */
+    text-align: left; /* Allinea le etichette a sinistra */
+}
+
+.contatti-container label {
+    display: block; /* Etichetta sopra il campo */
+    font-weight: bold;
+    margin-bottom: 5px; /* Spaziatura sotto l'etichetta */
     color: #5a2d2d; /* Colore marrone scuro */
-    margin: 40px auto; /* Spaziatura sopra e sotto */
+}
+
+.contatti-container input,
+.contatti-container textarea {
+    width: 100%; /* Larghezza completa */
+    padding: 10px; /* Spaziatura interna */
+    border: 1px solid #ccc; /* Bordo grigio chiaro */
+    border-radius: 10px; /* Angoli arrotondati */
+    font-size: 1.6vh; /* Dimensione del testo */
+    color: #333; /* Colore del testo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    resize: none; /* Disabilita il ridimensionamento della textarea */
+}
+
+.contatti-container input:focus,
+.contatti-container textarea:focus {
+    outline: none; /* Rimuove il bordo di focus */
+    border-color: #5a2d2d; /* Cambia il colore del bordo al focus */
+    box-shadow: 0 0 5px rgba(90, 45, 45, 0.5); /* Aggiunge un'ombra al focus */
+}
+
+/* Stile per il bottone */
+.contatti-container .btn-acquista {
+    margin-top: 10px; /* Spaziatura sopra il bottone */
+}
+.frase-centrata {
+    font-size: 2.5vh; /* Dimensione del testo di default */
+    text-align: center; /* Centra il testo */
+    color: #555; /* Colore del testo */
+    margin: 20px auto; /* Spaziatura sopra e sotto e centra il contenitore */
     line-height: 1.5; /* Migliora la leggibilità */
+    font-weight: 300; /* Rende il testo fine */
+    font-style: italic; /* Rende il testo in corsivo */
+    max-width: 98%; /* Larghezza massima relativa */
+    padding: 0 10px; /* Spaziatura interna orizzontale */
+}
+
+/* Per schermi più piccoli (tablet) */
+@media (max-width: 768px) {
+    .frase-centrata {
+        font-size: 2vh; /* Riduce la dimensione del testo */
+    }
+}
+
+/* Per schermi molto piccoli (smartphone) */
+@media (max-width: 480px) {
+    .frase-centrata {
+        font-size: 1.8vh; /* Riduce ulteriormente la dimensione del testo */
+    }
 }
 .btn-acquista {
     display: inline-block;
@@ -285,3 +371,82 @@ body {
     background-color: #eae7e5; /* Cambia colore al passaggio del mouse */
     color: #5a2d2d; /* Cambia il colore del testo */
 }
+
+/* Stile per il contenitore della mappa */
+.map-container {
+    position: relative; /* Necessario per posizionare l'overlay */
+    max-width: 98%; /* Larghezza massima relativa */
+    margin: 20px auto; /* Centra il rettangolo e aggiunge spazio sopra e sotto */
+    border-radius: 15px; /* Angoli arrotondati */
+    overflow: hidden; /* Nasconde l'overlay fuori dai bordi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+}
+
+/* Stile per l'overlay */
+.map-overlay {
+    position: absolute; /* Posiziona l'overlay sopra la mappa */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Trasparente di default */
+    display: flex; /* Usa Flexbox per centrare il testo */
+    justify-content: center; /* Centra il testo orizzontalmente */
+    align-items: center; /* Centra il testo verticalmente */
+    transition: background-color 0.3s ease; /* Transizione fluida */
+    z-index: 1; /* Porta l'overlay sopra la mappa */
+}
+
+/* Stile per il testo dell'overlay */
+.map-text {
+    color: #fff; /* Colore del testo */
+    font-size: 2vh; /* Dimensione del testo */
+    font-weight: bold;
+    text-transform: uppercase; /* Testo in maiuscolo */
+    opacity: 0; /* Nasconde il testo di default */
+    transition: opacity 0.3s ease; /* Transizione fluida */
+    z-index: 2; /* Porta il testo sopra l'overlay */
+}
+
+/* Effetto al passaggio del mouse */
+.map-container:hover .map-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Scurisce la mappa in trasparenza */
+}
+
+.map-container:hover .map-text {
+    opacity: 1; /* Mostra il testo */
+}
+
+/* Stile per il testo del footer */
+.footer-text {
+    text-align: center; /* Centra il testo */
+    padding: 10px 0; /* Spaziatura verticale */
+    background-color: #f5f5f5; /* Colore di sfondo del footer */
+    color: #5a2d2d; /* Colore del testo */
+    font-size: 1.4vh; /* Dimensione del testo */
+    border-radius: 15px; /* Angoli arrotondati */
+    max-width: 98%; /* Larghezza massima relativa */
+    margin: 20px auto; /* Centra il rettangolo e aggiunge spazio sopra e sotto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+}
+/* Stile per il bottone Scroll to Top */
+.scroll-to-top {
+    position: relative; /* Posiziona il bottone in relazione al footer */
+    margin: 20px auto 0; /* Aggiunge spazio sopra e centra il bottone */
+    display: flex; /* Usa Flexbox per il centramento */
+    justify-content: center; /* Centra il simbolo orizzontalmente */
+    align-items: center; /* Centra il simbolo verticalmente */
+    width: 30px; /* Larghezza del bottone */
+    height: 30px; /* Altezza del bottone */
+    background-color: #5a2d2d; /* Colore di sfondo */
+    color: #fff; /* Colore del testo */
+    border-radius: 50%; /* Forma circolare */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    transition: background-color 0.3s ease; /* Transizione fluida */
+    font-size: 12px; /* Dimensione del simbolo */
+}
+
+.scroll-to-top:hover {
+    background-color: #333; /* Cambia colore al passaggio del mouse */
+} 
