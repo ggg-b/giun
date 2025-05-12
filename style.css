@@ -48,8 +48,16 @@ html {
         display: flex; /* Mostra il burger menu */
     }
 
+  /* Nascondi il menu su dispositivi piccoli */
+.menu-links {
+    display: flex; /* Mostra il menu di default su schermi grandi */
+    list-style: none;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
     .menu-links {
-        display: none; /* Nascondi il menu di default */
+        display: none; /* Nascondi il menu di default su schermi piccoli */
         flex-direction: column;
         position: absolute;
         top: 60px; /* Posiziona sotto la barra */
@@ -74,6 +82,11 @@ html {
         text-decoration: none;
         font-size: 18px;
     }
+
+    .menu-toggle {
+        display: flex; /* Mostra il burger menu */
+    }
+}
 }
 .menu-container {
     position: fixed; /* Rende la barra "appiccicosa" */

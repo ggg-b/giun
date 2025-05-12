@@ -11,13 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuLinks = document.getElementById("menu-links");
 
     menuToggle.addEventListener("click", () => {
-        menuLinks.classList.toggle("active"); // Alterna la classe "active"
-    });
-
-    // Chiudi il menu quando si clicca fuori
-    document.addEventListener("click", (event) => {
-        if (!menuToggle.contains(event.target) && !menuLinks.contains(event.target)) {
-            menuLinks.classList.remove("active"); // Rimuove la classe "active"
-        }
+        menuLinks.classList.toggle("active"); // Mostra o nasconde il menu
     });
 });
