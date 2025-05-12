@@ -95,7 +95,7 @@ html {
     width: 100%; /* Occupa tutta la larghezza */
     z-index: 999; /* Porta la barra sopra il contenuto */
     background-color: #5a2d2d; /* Colore marrone scuro */
-    padding: 20px 0; /* Spaziatura verticale */
+    padding: 20px 10px 20px 0px; /* Spaziatura verticale */
     display: flex; /* Layout flessibile */
     flex-wrap: wrap; /* Permette agli elementi di andare a capo se lo spazio non è sufficiente */
     align-items: center; /* Allinea verticalmente gli elementi */
@@ -109,7 +109,6 @@ body {
 
 .menu-container ul {
     list-style: none; /* Rimuove i punti elenco */
-    display: flex;
     flex-wrap: wrap; /* Permette agli elementi di andare a capo se lo spazio non è sufficiente */
     justify-content: flex-end; /* Sposta gli elementi verso destra */
     gap: 40px; /* Spaziatura tra gli elementi */
@@ -442,24 +441,48 @@ body {
     margin: 20px auto; /* Centra il rettangolo e aggiunge spazio sopra e sotto */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
 }
+
+/* Stile per il checkbox della privacy */
+.form-group input[type="checkbox"] {
+    margin-right: 10px; /* Spaziatura tra il checkbox e il testo */
+}
+
+.form-group label a {
+    color: #5a2d2d; /* Colore del link */
+    text-decoration: underline; /* Sottolinea il link */
+}
+
+.form-group label a:hover {
+    color: #333; /* Cambia colore al passaggio del mouse */
+}
+
 /* Stile per il bottone Scroll to Top */
 .scroll-to-top {
-    position: relative; /* Posiziona il bottone in relazione al footer */
-    margin: 20px auto 0; /* Aggiunge spazio sopra e centra il bottone */
-    display: flex; /* Usa Flexbox per il centramento */
-    justify-content: center; /* Centra il simbolo orizzontalmente */
-    align-items: center; /* Centra il simbolo verticalmente */
-    width: 30px; /* Larghezza del bottone */
-    height: 30px; /* Altezza del bottone */
+    position: fixed; /* Posiziona il bottone in modo fisso */
+    bottom: 20px; /* Distanza dal fondo dello schermo */
+    right: 20px; /* Distanza dal lato destro dello schermo */
+    display: none; /* Nascondi il bottone di default */
+    width: 40px; /* Larghezza del bottone */
+    height: 40px; /* Altezza del bottone */
     background-color: #5a2d2d; /* Colore di sfondo */
     color: #fff; /* Colore del testo */
     border-radius: 50%; /* Forma circolare */
     cursor: pointer; /* Cambia il cursore al passaggio del mouse */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Leggera ombra */
     transition: background-color 0.3s ease; /* Transizione fluida */
-    font-size: 12px; /* Dimensione del simbolo */
+    font-size: 16px; /* Dimensione del simbolo */
+    justify-content: center; /* Centra il simbolo orizzontalmente */
+    align-items: center; /* Centra il simbolo verticalmente */
+    z-index: 1000; /* Porta il bottone sopra gli altri elementi */
+}
+
+/* Mostra il bottone solo su schermi grandi (PC) */
+@media (min-width: 1024px) {
+    .scroll-to-top {
+        display: flex; /* Mostra il bottone su schermi grandi */
+    }
 }
 
 .scroll-to-top:hover {
     background-color: #333; /* Cambia colore al passaggio del mouse */
-} 
+}
