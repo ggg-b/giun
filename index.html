@@ -27,16 +27,31 @@
     <li><a href="#contacts">contacts</a></li> <!-- Aggiunto il link Contatti -->
 </ul>
         </nav>
+        
     </header>
     
     <!-- Sezione Home -->
-<section id="home" class="image-container">
-        <img src="Sfondo.jpg" alt="Descrizione immagine" />
-    <div class="image-text">
-        <p class="subtitle">NUOVO GEL AUTOLIVELLANTE</p>
-        <h2 class="title">DISPONIBILE IN SETTE COLORAZIONI NUDE</h2>
-        <a href="#" class="btn">ACQUISTA ORA</a>
+<div id="home" class="image-text-container">
+<div class="image-text-container">
+    <!-- Immagine per schermi grandi -->
+    <div class="image-box large-screen">
+        <img src="Sfondo.jpg" alt="Immagine per schermi grandi">
+        <div class="text-overlay">
+            <p class="subtitle">NUOVO GEL AUTOLIVELLANTE</p>
+            <h2 class="title">DISPONIBILE IN SETTE COLORAZIONI NUDE</h2>
+            <a href="#" class="btn">ACQUISTA ORA</a>
+        </div>
     </div>
+
+    <!-- Immagine per schermi piccoli -->
+    <div class="image-box small-screen">
+        <img src="SfondoPiccolo.jpg" alt="Immagine per schermi piccoli">
+    <div class="text-overlay">
+            <p class="subtitle">NUOVO GEL AUTOLIVELLANTE</p>
+            <h2 class="title">DISPONIBILE IN SETTE COLORAZIONI NUDE</h2>
+            <a href="#" class="btn">ACQUISTA ORA</a>
+    </div>
+</div>
 </section>
 <!-- Sezione About -->
 <section id="about" class="about-container">
@@ -91,44 +106,63 @@
 
 </body>
 </html>
-  
-      <section id="mappa" class="map-container">
-    <a href="https://www.google.com/maps?q=Milano+Duomo" target="_blank" class="map-link">
-        <div class="map-overlay">
-            <p class="map-text">Dove trovarmi</p>
-        </div>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.510485206658!2d9.18998231574636!3d45.46420397910192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a7e7b0b0b1%3A0x421d9e3e3b0b0b0b!2sDuomo%20di%20Milano!5e0!3m2!1sit!2sit!4v1611816753437!5m2!1sit!2sit" 
-            width="100%" 
-            height="300" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
-    </a>
-</section>
+  <div class="map-contatti-container">
+    <!-- Contenitore della mappa -->
+    <div class="map-container">
+        <a href="https://www.google.com/maps?q=Milano+Duomo" target="_blank" class="map-link">
+            <div class="map-overlay">
+                <p class="map-text">Dove trovarmi</p>
+            </div>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.510485206658!2d9.18998231574636!3d45.46420397910192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a7e7b0b0b1%3A0x421d9e3e3b0b0b0b!2sDuomo%20di%20Milano!5e0!3m2!1sit!2sit!4v1611816753437!5m2!1sit!2sit" 
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </a>
+    </div>
 
-    <section id="contacts" class="contatti-container">
-    <h2>Contattaci</h2>
-    <p>Per qualsiasi informazione, non esitare a contattarci!</p>
-    <form id="contact-form">
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
-        </div>
-        <div class="form-group">
-            <label for="messaggio">Messaggio:</label>
-            <textarea id="messaggio" name="messaggio" placeholder="Scrivi il tuo messaggio" required></textarea>
-        </div>
-        <div class="form-group">
-            <input type="checkbox" id="privacy" name="privacy" required>
-            <label for="privacy">Accetto la <a href="privacy.html" target="_blank">privacy policy</a></label>
-        </div>
-        <button type="submit" class="btn-acquista">Invia</button>
+    <!-- Contenitore dei contatti -->
+<div id="contacts" class="contatti-container">
+    <div class="contatti-container">
+        <h2>Contattaci</h2>
+        <p>Per qualsiasi informazione, non esitare a contattarci!</p>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+            </div>
+            <div class="form-group">
+                <label for="messaggio">Messaggio:</label>
+                <textarea id="messaggio" name="messaggio" placeholder="Scrivi il tuo messaggio" required></textarea>
+            </div>
+            <div class="privacy-group">
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <label for="privacy">
+                    Accetto la <a href="#" id="privacy-link">privacy policy</a>
+                </label>
+            </div>
+            <button type="submit" class="btn-acquista">Invia</button>
+        </form>
+    </div>
+</div>
+
+<!-- Pop-up per la privacy policy -->
+<div id="privacy-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Privacy Policy</h2>
+        <p>
+            Qui puoi inserire il contenuto completo della tua privacy policy. Spiega come vengono trattati i dati personali, 
+            per quali scopi e come gli utenti possono contattarti per ulteriori informazioni.
+        </p>
+    </div>
     </form>
 </section>
     </div>

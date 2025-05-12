@@ -56,36 +56,63 @@ html {
 }
 
 @media (max-width: 768px) {
-    .menu-links {
-        display: none; /* Nascondi il menu di default su schermi piccoli */
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Posiziona sotto la barra */
-        right: 0;
-        background-color: #5a2d2d; /* Colore di sfondo */
-        width: 100%;
-        padding: 20px 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
+  /* Stile per il menu a tendina */
+/* Stile per il menu a tendina */
+.menu-links {
+    display: none; /* Nascondi il menu di default */
+    flex-direction: column; /* Disposizione verticale */
+    position: absolute;
+    top: 60px; /* Posiziona sotto la barra */
+    right: 10px; /* Allinea il menu a destra */
+    background-color: #a9a9a9; /* Sfondo bianco */
+    border-radius: 15px; /* Bordi arrotondati */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    padding: 20px; /* Spaziatura interna */
+    z-index: 999; /* Porta il menu sopra gli altri elementi */
+    width: 250px; /* Larghezza del menu */
+    text-align: center; /* Centra il testo */
+}
 
-    .menu-links.active {
-        display: flex; /* Mostra il menu quando attivo */
-    }
+/* Mostra il menu quando attivo */
+.menu-links.active {
+    display: flex; /* Mostra il menu */
+}
 
-    .menu-links li {
-        text-align: center;
-        margin: 10px 0;
-    }
+/* Stile per i link del menu */
+.menu-links li {
+    margin: 3px 0px 0px 30px; /* Spaziatura tra i link */
+}
 
-    .menu-links li a {
-        color: #fff; /* Colore del testo */
-        text-decoration: none;
-        font-size: 18px;
-    }
+.menu-links li a {
+    color: #524d4d; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-size: 18px; /* Dimensione del testo */
+    font-weight: bold; /* Testo in grassetto */
+    transition: color 0.3s ease; /* Transizione per il colore */
+}
 
-    .menu-toggle {
-        display: flex; /* Mostra il burger menu */
-    }
+.menu-links li a:hover {
+    color: #5a2d2d; /* Cambia colore al passaggio del mouse */
+}
+
+/* Stile per il burger menu */
+.menu-toggle {
+    display: flex; /* Mostra il burger menu */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff; /* Colore delle linee */
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
 }
 }
 .menu-container {
@@ -118,7 +145,7 @@ body {
 
 .menu-container ul li a {
     text-decoration: none;
-    color: #fff; /* Colore del testo bianco */
+    color: #ffffff; /* Colore del testo bianco */
     font-weight: bold;
     text-transform: uppercase;
     font-size: 1,60vh;
@@ -135,60 +162,213 @@ body {
     object-fit: contain; /* Mantiene le proporzioni */
 }
 
-.image-container {
+/* Contenitore principale */
+.image-text-container {
+    display: flex;
+    flex-direction: column; /* Disposizione verticale di default */
+    margin: 20px auto; /* Centra il contenitore */
+    max-width: 98%; /* Larghezza massima relativa */
+}
+
+/* Stile per il contenitore dell'immagine principale */
+.image-box {
     position: relative; /* Necessario per posizionare il testo sopra l'immagine */
-    width: 98%; /* Larghezza completa */
-    height: 78vh; /* Altezza relativa allo schermo */
+    width: 100%; /* L'immagine occupa tutta la larghezza */
+    max-width: 98%; /* Larghezza massima relativa */
+    margin: 20px auto; /* Centra il contenitore e aggiunge spazio sopra e sotto */
     border-radius: 15px; /* Bordi arrotondati */
     overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
-    margin: 0px auto; /* Aggiunge uno spazio sopra e centra il contenitore */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
 }
 
-.image-container img {
-    width: 100%; /* L'immagine occupa tutta la larghezza */
-    height: 100%; /* L'immagine occupa tutta l'altezza */
+/* Stile per l'immagine */
+.image-box img {
+    width: 100%; /* L'immagine occupa tutta la larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni */
+    display: block; /* Rimuove eventuali spazi indesiderati sotto l'immagine */
     object-fit: cover; /* Adatta l'immagine senza distorcerla */
 }
 
-.image-text {
+
+/* Nascondi l'immagine per schermi piccoli di default */
+.small-screen {
+    display: none;
+}
+
+
+/* Mostra l'immagine per schermi piccoli e nascondi quella per schermi grandi */
+@media (max-width: 768px) {
+    .large-screen {
+        display: none; /* Nascondi l'immagine per schermi grandi */
+    }
+
+    .small-screen {
+        display: block; /* Mostra l'immagine per schermi piccoli */
+    }
+
+    .small-screen img {
+        width: 100%; /* L'immagine occupa tutta la larghezza */
+        height: auto; /* Mantiene le proporzioni */
+        border-radius: 15px; /* Bordi arrotondati */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    }
+}
+
+/* Per schermi grandi (PC) */
+@media (min-width: 1024px) {
+    .about-container,
+    .contatti-container,
+    .prodotti-banner {
+        background-color: transparent; /* Rimuove lo sfondo */
+        box-shadow: none; /* Rimuove l'ombra */
+        border-radius: 0; /* Rimuove i bordi arrotondati */
+        padding: 0; /* Rimuove la spaziatura interna */
+        margin: 0; /* Rimuove il margine */
+        max-width: none; /* Rimuove la larghezza massima */
+    }
+
+    .about-container,
+    .contatti-container,
+    .prodotti-banner,
+    .frase-centrata {
+        text-align: left; /* Allinea il testo a sinistra */
+    }
+
+    .about-container p,
+    .contatti-container p,
+    .prodotti-banner {
+        margin: 0; /* Rimuove margini extra */
+    }
+}
+
+/* Testo sovrapposto all'immagine */
+.text-overlay {
     position: absolute; /* Posiziona il testo sopra l'immagine */
-    bottom: 10%; /* Posiziona il testo in basso */
-    left: 3%; /* Posiziona il testo a sinistra */
-    transform: translateX(3%); /* Centra il testo rispetto al contenitore */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra orizzontalmente */
+    transform: translate(-50%, -50%); /* Centra il testo rispetto al contenitore */
+    text-align: center; /* Centra il testo */
     color: #fff; /* Colore del testo bianco */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
+    padding: 20px; /* Spaziatura interna */
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    border-radius: 15px; /* Bordi arrotondati */
 }
 
-.image-text .subtitle {
+/* Stile per il sottotitolo */
+.text-overlay .subtitle {
     font-size: 2vh; /* Font più piccolo per il sottotitolo */
-    margin-bottom: 1%; /* Spaziatura sotto il sottotitolo */
-    color: #544e4e; /* Colore marrone scuro */
+    margin-bottom: 10px; /* Spaziatura sotto il sottotitolo */
 }
 
-.image-text .title {
+/* Stile per il titolo */
+.text-overlay .title {
     font-size: 3vh; /* Font più grande per il titolo */
     font-weight: bold;
     margin-bottom: 20px; /* Spaziatura sotto il titolo */
-    color: #5a2d2d; /* Colore marrone scuro */
 }
 
-.image-text .btn {
+/* Stile per il bottone */
+.text-overlay .btn {
     display: inline-block;
-    padding: 5px 30px; /* Spaziatura interna */
-    background-color: #fff; /* Colore beige */
-    color: #5a2d2d; /* Colore del testo marrone scuro */
+    padding: 10px 20px; /* Spaziatura interna */
+    background-color: #cd8585; /* Colore marrone scuro */
+    color: #fff; /* Colore del testo bianco */
     text-decoration: none; /* Rimuove la sottolineatura */
     font-weight: normal;
     border-radius: 15px; /* Bordi arrotondati */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Leggera ombra */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
     transition: background-color 0.3s ease;
 }
-.btn:hover {
+
+.text-overlay .btn:hover {
     background-color: #7d746e; /* Cambia il colore di sfondo al passaggio del mouse */
     color: #fff; /* Cambia il colore del testo */
 }
+
+/* Per schermi grandi (PC) */
+@media (min-width: 1024px) {
+    .image-text-container {
+        position: relative; /* Necessario per posizionare il testo sopra l'immagine */
+        margin: 0 auto; /* Centra il contenitore */
+        max-width: 100%; /* L'immagine occupa tutta la larghezza */
+    }
+
+    .text-overlay {
+        position: absolute; /* Posiziona il testo sopra l'immagine */
+        top: 20%; /* Posiziona il testo rispetto alla parte superiore */
+        left: 5%; /* Allinea il testo a sinistra */
+        transform: none; /* Rimuove la trasformazione */
+        text-align: left; /* Allinea il testo a sinistra */
+        color: #fff; /* Colore del testo bianco */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
+        background-color: transparent; /* Rimuove lo sfondo */
+        padding: 0; /* Rimuove la spaziatura interna */
+    }
+
+    .text-overlay .title {
+        font-size: 3vh; /* Dimensione del titolo */
+        margin-bottom: 10px; /* Spaziatura sotto il titolo */
+    }
+
+    .text-overlay .subtitle {
+        font-size: 2vh; /* Dimensione del sottotitolo */
+        margin-bottom: 10px; /* Spaziatura sotto il sottotitolo */
+    }
+
+    .text-overlay .btn {
+        display: inline-block;
+        font-size: 1.8vh; /* Dimensione del pulsante */
+        padding: 10px 20px; /* Spaziatura interna */
+        background-color: #5a2d2d; /* Colore marrone scuro */
+        color: #fff; /* Colore del testo bianco */
+        text-decoration: none; /* Rimuove la sottolineatura */
+        border-radius: 15px; /* Bordi arrotondati */
+        margin-top: 10px; /* Spaziatura sopra il pulsante */
+    }
+
+    .image-box {
+        position: relative; /* Mantiene il posizionamento relativo */
+        width: 98%; /* L'immagine occupa tutta la larghezza */
+        height: 80vh; /* L'immagine occupa tutta l'altezza dello schermo */
+        overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
+    }
+
+    .image-box img {
+        width: 100%; /* L'immagine occupa tutta la larghezza */
+        height: 100%; /* L'immagine occupa tutta l'altezza */
+        object-fit: cover; /* Adatta l'immagine senza distorcerla */
+    }
+}
+
+/* Layout per schermi piccoli */
+@media (max-width: 768px) {
+    .image-box {
+        position: static; /* Rimuove il posizionamento assoluto */
+    }
+/* Mantieni la frase sulla stessa linea */
+.text-overlay .title {
+    font-size: 2.2vh; /* Font adattabile per schermi piccoli */
+    overflow: hidden; /* Nasconde eventuali parti che escono dal contenitore */
+    text-overflow: ellipsis; /* Aggiunge "..." se il testo è troppo lungo */
+    text-align: center; /* Centra il testo */
+}
+    .text-overlay {
+        position: static; /* Rimuove il posizionamento assoluto */
+        transform: none; /* Rimuove la trasformazione */
+        margin-top: 20px; /* Aggiunge spazio sopra il testo */
+        background-color: transparent; /* Rimuove lo sfondo semi-trasparente */
+        text-shadow: none; /* Rimuove l'ombra del testo */
+        color: #5a2d2d; /* Cambia il colore del testo */
+    }
+    .text-overlay .btn {
+        font-size: 1.8vh; /* Font adattabile per il pulsante */
+        padding: 8px 16px; /* Riduce la spaziatura interna */
+        width: auto; /* Adatta la larghezza del pulsante */
+        text-align: center; /* Centra il testo nel pulsante */
+    }
+}
+
 
 .about-container {
     background-color: #f5e8dc; /* Colore beige */
@@ -216,7 +396,7 @@ body {
     display: block; /* Rimuove eventuali spazi indesiderati sotto l'immagine */
 }
 .prodotti-banner {
-    background-color: #5a2d2d; /* Colore beige */
+    background-color: #a9a9a9; /* Colore beige */
     padding: 10px 20px; /* Spaziatura interna */
     margin: 10px auto; /* Distacco dal resto del contenuto */
     border-radius: 15px; /* Bordi arrotondati */
@@ -362,7 +542,7 @@ body {
 .btn-acquista {
     display: inline-block;
     padding: 10px 20px; /* Spaziatura interna */
-    background-color: #5a2d2d; /* Colore marrone scuro */
+    background-color: #cd8585; /* Colore marrone scuro */
     color: #fff; /* Colore del testo bianco */
     text-decoration: none; /* Rimuove la sottolineatura */
     font-size: 16px; /* Dimensione del testo */
@@ -383,6 +563,17 @@ body {
     background-color: #eae7e5; /* Cambia colore al passaggio del mouse */
     color: #5a2d2d; /* Cambia il colore del testo */
 }
+
+/* Adatta i bottoni "Acquista Ora" su schermi piccoli */
+@media (max-width: 768px) {
+    .btn-acquista {
+        font-size: 14px; /* Riduce la dimensione del testo */
+        padding: 8px 16px; /* Riduce la spaziatura interna */
+        width: auto; /* Adatta la larghezza del bottone */
+        text-align: center; /* Centra il testo nel bottone */
+    }
+}
+
 
 /* Stile per il contenitore della mappa */
 .map-container {
@@ -442,6 +633,143 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
 }
 
+
+/* Stile per il checkbox della privacy */
+.privacy-group {
+    display: flex; /* Disposizione orizzontale */
+    align-items: center; /* Allinea il checkbox e il testo verticalmente */
+    gap: 10px; /* Spaziatura tra il checkbox e il testo */
+    white-space: nowrap; /* Impedisce che il testo vada a capo */
+}
+
+.privacy-group input[type="checkbox"] {
+    margin: 0; /* Rimuove margini extra */
+}
+
+.privacy-group label {
+    margin: 0; /* Rimuove margini extra */
+    color: #5a2d2d; /* Colore del testo */
+    white-space: nowrap; /* Impedisce che il testo vada a capo */
+}
+
+.privacy-group label a {
+    color: #5a2d2d; /* Colore del link */
+    text-decoration: underline; /* Sottolinea il link */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+}
+
+.privacy-group label a:hover {
+    color: #333; /* Cambia colore al passaggio del mouse */
+}
+
+/* Stile per il contenitore dei contatti */
+.contatti-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra tutti gli elementi */
+    background-color: #fff; /* Sfondo bianco */
+    padding: 20px; /* Spaziatura interna */
+    margin: 20px auto; /* Centra il rettangolo e aggiunge spazio sopra e sotto */
+    border-radius: 15px; /* Angoli arrotondati */
+    max-width: 600px; /* Larghezza massima coerente con la scritta */
+    width: 100%; /* Adatta la larghezza al contenitore */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    text-align: center; /* Centra il testo */
+    font-size: 2vh; /* Dimensione del testo */
+    color: #5a2d2d; /* Colore del testo marrone scuro */
+    line-height: 1.6; /* Migliora la leggibilità */
+}
+
+/* Adatta il contenitore su schermi più grandi (PC) */
+@media (min-width: 1024px) {
+    .contatti-container {
+        max-width: 600px; /* Mantieni la larghezza massima coerente */
+    }
+}
+
+/* Stile per i campi del modulo */
+.contatti-container .form-group {
+    width: 100%; /* Larghezza completa */
+    margin-bottom: 15px; /* Spaziatura tra i campi */
+    text-align: left; /* Allinea le etichette a sinistra */
+}
+
+.contatti-container label {
+    display: block; /* Etichetta sopra il campo */
+    font-weight: bold;
+    margin-bottom: 5px; /* Spaziatura sotto l'etichetta */
+    color: #5a2d2d; /* Colore marrone scuro */
+}
+/* Aggiungi più spazio sotto il titolo "Nome" */
+.contatti-container h2 {
+    margin-bottom: 10px; /* Aumenta lo spazio sotto il titolo */
+}
+
+/* Aggiungi più spazio sopra la frase */
+.contatti-container p {
+    margin-top: 3px; /* Aumenta lo spazio sopra la frase */
+ margin-bottom: 20px; /* Aumenta lo spazio sotto la frase */
+}
+
+.contatti-container input,
+.contatti-container textarea {
+    width: 100%; /* Larghezza completa */
+    padding: 10px; /* Spaziatura interna */
+    border: 1px solid #ccc; /* Bordo grigio chiaro */
+    border-radius: 10px; /* Angoli arrotondati */
+    font-size: 1.6vh; /* Dimensione del testo */
+    color: #333; /* Colore del testo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    resize: none; /* Disabilita il ridimensionamento della textarea */
+}
+
+/* Stile per il checkbox della privacy */
+.privacy-group {
+    display: flex;
+    align-items: center; /* Allinea il checkbox e il testo sulla stessa linea */
+    gap: 10px; /* Spaziatura tra il checkbox e il testo */
+    margin-top: 15px; /* Spaziatura sopra il gruppo privacy */
+}
+
+.privacy-group input[type="checkbox"] {
+    margin: 0; /* Rimuove margini extra */
+}
+
+.privacy-group label {
+    margin: 0; /* Rimuove margini extra */
+    color: #5a2d2d; /* Colore del testo */
+}
+
+.privacy-group label a {
+    color: #5a2d2d; /* Colore del link */
+    text-decoration: underline; /* Sottolinea il link */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+}
+
+.privacy-group label a:hover {
+    color: #333; /* Cambia colore al passaggio del mouse */
+}
+
+/* Stile per il bottone */
+.contatti-container .btn-acquista {
+    margin-top: 20px; /* Spaziatura sopra il bottone */
+    padding: 10px 20px; /* Spaziatura interna */
+    background-color: #cd8585; /* Colore marrone scuro */
+    color: #fff; /* Colore del testo bianco */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-size: 16px; /* Dimensione del testo */
+    font-weight: normal;
+    border: none; /* Rimuove il bordo */
+    border-radius: 15px; /* Bordi arrotondati */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s ease; /* Transizione fluida */
+}
+
+.contatti-container .btn-acquista:hover {
+    background-color: #eae7e5; /* Cambia colore al passaggio del mouse */
+    color: #5a2d2d; /* Cambia il colore del testo */
+}
+
 /* Stile per il checkbox della privacy */
 .form-group input[type="checkbox"] {
     margin-right: 10px; /* Spaziatura tra il checkbox e il testo */
@@ -454,6 +782,48 @@ body {
 
 .form-group label a:hover {
     color: #333; /* Cambia colore al passaggio del mouse */
+}
+/* Stile per il pop-up */
+.popup {
+    display: none; /* Nascondi il pop-up di default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    z-index: 1000; /* Porta il pop-up sopra gli altri elementi */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff; /* Sfondo bianco */
+    padding: 20px;
+    border-radius: 10px; /* Angoli arrotondati */
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    text-align: center;
+}
+
+.popup-content h2 {
+    margin-bottom: 10px;
+    color: #5a2d2d; /* Colore del titolo */
+}
+.popup-content p {
+    color: #333; /* Colore del testo */
+    line-height: 1.6; /* Migliora la leggibilità */
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
 }
 
 /* Stile per il bottone Scroll to Top */
