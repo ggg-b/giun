@@ -56,7 +56,6 @@ html {
 }
 
 @media (max-width: 768px) {
-  /* Stile per il menu a tendina */
 /* Stile per il menu a tendina */
 .menu-links {
     display: none; /* Nascondi il menu di default */
@@ -320,7 +319,7 @@ body {
         display: inline-block;
         font-size: 1.8vh; /* Dimensione del pulsante */
         padding: 10px 20px; /* Spaziatura interna */
-        background-color: #5a2d2d; /* Colore marrone scuro */
+        background-color: #ad6e6e; /* Colore marrone scuro */
         color: #fff; /* Colore del testo bianco */
         text-decoration: none; /* Rimuove la sottolineatura */
         border-radius: 15px; /* Bordi arrotondati */
@@ -396,7 +395,7 @@ body {
     display: block; /* Rimuove eventuali spazi indesiderati sotto l'immagine */
 }
 .prodotti-banner {
-    background-color: #a9a9a9; /* Colore beige */
+    background-color: #a9a9a9; /* Colore grigio */
     padding: 10px 20px; /* Spaziatura interna */
     margin: 10px auto; /* Distacco dal resto del contenuto */
     border-radius: 15px; /* Bordi arrotondati */
