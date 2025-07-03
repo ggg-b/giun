@@ -295,11 +295,11 @@ body {
 
     .text-overlay {
         position: absolute; /* Posiziona il testo sopra l'immagine */
-        top: 20%; /* Posiziona il testo rispetto alla parte superiore */
+        top: 70%; /* Posiziona il testo rispetto alla parte superiore */
         left: 5%; /* Allinea il testo a sinistra */
         transform: none; /* Rimuove la trasformazione */
         text-align: left; /* Allinea il testo a sinistra */
-        color: #fff; /* Colore del testo bianco */
+        color: #5a2d2d; /* Colore del testo bianco */
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
         background-color: transparent; /* Rimuove lo sfondo */
         padding: 0; /* Rimuove la spaziatura interna */
@@ -514,66 +514,53 @@ body {
     margin-top: 10px; /* Spaziatura sopra il bottone */
 }
 .frase-centrata {
-    font-size: 2.5vh; /* Dimensione del testo di default */
-    text-align: center; /* Centra il testo */
-    color: #555; /* Colore del testo */
-    margin: 20px auto; /* Spaziatura sopra e sotto e centra il contenitore */
-    line-height: 1.5; /* Migliora la leggibilità */
-    font-weight: 300; /* Rende il testo fine */
-    font-style: italic; /* Rende il testo in corsivo */
-    max-width: 98%; /* Larghezza massima relativa */
-    padding: 0 10px; /* Spaziatura interna orizzontale */
+    font-size: 2.5vh;
+    text-align: center;
+    color: #555;
+    margin: 20px auto;
+    line-height: 1.5;
+    font-weight: 300;
+    font-style: italic;
+    max-width: 98%;
+    padding: 0 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #cd8585;
+    animation: typing-effect 4s steps(60, end) infinite alternate, blink-caret 0.7s steps(1) infinite;
 }
-
-/* Per schermi più piccoli (tablet) */
+@keyframes typing-effect {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #cd8585; }
+}
+/* Per schermi piccoli: mostra solo "PRODOTTI INNOVATIVI" con effetto scrittura */
 @media (max-width: 768px) {
     .frase-centrata {
-        font-size: 2vh; /* Riduce la dimensione del testo */
+        font-size: 3vh;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #cd8585;
+        animation: typing-effect 2s steps(20, end) infinite alternate, blink-caret 0.7s steps(1) infinite;
+    }
+    .frase-centrata .full-text {
+        display: none;
+    }
+    .frase-centrata .short-text {
+        display: inline;
     }
 }
-
-/* Per schermi molto piccoli (smartphone) */
-@media (max-width: 480px) {
-    .frase-centrata {
-        font-size: 1.8vh; /* Riduce ulteriormente la dimensione del testo */
+/* Per schermi grandi: mostra il testo completo */
+@media (min-width: 769px) {
+    .frase-centrata .full-text {
+        display: inline;
+    }
+    .frase-centrata .short-text {
+        display: inline;
     }
 }
-.btn-acquista {
-    display: inline-block;
-    padding: 10px 20px; /* Spaziatura interna */
-    background-color: #cd8585; /* Colore marrone scuro */
-    color: #fff; /* Colore del testo bianco */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    font-size: 16px; /* Dimensione del testo */
-    font-weight: normal;
-    border: none; /* Rimuove il bordo */
-    border-radius: 15px; /* Bordi arrotondati */
-    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-    transition: background-color 0.3s ease; /* Transizione fluida */
-    
-}
-.btn-container {
-    display: flex; /* Usa Flexbox per il centramento */
-    justify-content: center; /* Centra orizzontalmente */
-    margin-top: 20px; /* Spaziatura sopra il bottone */
-}
-
-.btn-acquista:hover {
-    background-color: #eae7e5; /* Cambia colore al passaggio del mouse */
-    color: #5a2d2d; /* Cambia il colore del testo */
-}
-
-/* Adatta i bottoni "Acquista Ora" su schermi piccoli */
-@media (max-width: 768px) {
-    .btn-acquista {
-        font-size: 14px; /* Riduce la dimensione del testo */
-        padding: 8px 16px; /* Riduce la spaziatura interna */
-        width: auto; /* Adatta la larghezza del bottone */
-        text-align: center; /* Centra il testo nel bottone */
-    }
-}
-
-
 /* Stile per il contenitore della mappa */
 .map-container {
     position: relative; /* Necessario per posizionare l'overlay */
@@ -699,6 +686,7 @@ body {
     margin-bottom: 5px; /* Spaziatura sotto l'etichetta */
     color: #5a2d2d; /* Colore marrone scuro */
 }
+
 /* Aggiungi più spazio sotto il titolo "Nome" */
 .contatti-container h2 {
     margin-bottom: 10px; /* Aumenta lo spazio sotto il titolo */
@@ -823,6 +811,7 @@ body {
     font-weight: bold;
     color: #333;
     cursor: pointer;
+    z-index: 10; /* Assicurati che sia sopra il contenuto */
 }
 
 /* Stile per il bottone Scroll to Top */
@@ -854,4 +843,54 @@ body {
 
 .scroll-to-top:hover {
     background-color: #333; /* Cambia colore al passaggio del mouse */
+}
+
+/* Stile marrone su sfondo bianco per la sezione contatti su schermi piccoli */
+@media (max-width: 768px) {
+    .mobile-contacts-style {
+        background: #fff !important;
+        color: #5a2d2d !important;
+    }
+    .mobile-contacts-style label,
+    .mobile-contacts-style h2,
+    .mobile-contacts-style p,
+    .mobile-contacts-style input,
+    .mobile-contacts-style textarea {
+        color: #5a2d2d !important;
+        background: #fff !important;
+    }
+    .mobile-contacts-style input,
+    .mobile-contacts-style textarea {
+        border: 1px solid #808080 !important;
+    }
+    /* Mantieni il bottone "Invia" rosa come da stile originale */
+    .mobile-contacts-style .btn-acquista[type="submit"] {
+        background: #cd8585 !important;
+        color: #fff !important;
+    }
+    /* Se vuoi che solo il bottone "Invia" sia rosa e gli altri restino marroni */
+    .mobile-contacts-style .btn-acquista:not([type="submit"]) {
+        background: #5a2d2d !important;
+        color: #fff !important;
+    }
+}
+
+/* Riduci lo spazio bianco dopo l'ultimo elemento su schermi piccoli */
+@media (max-width: 768px) {
+    body {
+        margin-bottom: 10px !important;
+    }
+    .contatti-container {
+        margin-bottom: 10px !important;
+    }
+    .footer-text {
+        margin-bottom: -20px !important;
+    }
+}
+
+/* Aumenta lo spazio bianco tra "CHI SONO" e il box principale su schermi piccoli */
+@media (max-width: 768px) {
+    .about-container {
+        margin-top: 40px !important;
+    }
 }

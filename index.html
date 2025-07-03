@@ -22,8 +22,8 @@
             </div>
             <ul class="menu-links" id="menu-links">
     <li><a href="#home">Home</a></li>
-    <li><a href="#shop">Shop</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#shop">Shop</a></li>
     <li><a href="#contacts">contacts</a></li> <!-- Aggiunto il link Contatti -->
 </ul>
         </nav>
@@ -39,7 +39,7 @@
         <div class="text-overlay">
             <p class="subtitle">NUOVO GEL AUTOLIVELLANTE</p>
             <h2 class="title">DISPONIBILE IN SETTE COLORAZIONI NUDE</h2>
-            <a href="#" class="btn">ACQUISTA ORA</a>
+            <a href="#" class="btn" id="popup-acquista-btn">ACQUISTA ORA</a>
         </div>
     </div>
 
@@ -97,15 +97,58 @@
         </section>
         <section class="prodotto">
             <h3 class="frase-centrata">
-                "PRODOTTI INNOVATIVI: REALIZZATI NEI MIGLIORI LABORATORI MADE IN ITALY, I NOSTRI GEL SONO STATI STUDIATI E FORMULATI PER GARANTIRTI UNA DURATA PERFETTA FINO A 4 SETTIMANE"
+                <span class="full-text">
+                    "PRODOTTI INNOVATIVI: REALIZZATI NEI MIGLIORI LABORATORI MADE IN ITALY"
+                </span>
+                <span class="short-text">
+                    "PRODOTTI INNOVATIVI"
+                </span>
             </h3>
             <div class="btn-container">
                 <button id="acquista-btn" class="btn-acquista">ACQUISTA ORA</button>
             </div>
         </section>
 
-</body>
-</html>
+<!-- Pop-up acquisto gel -->
+<div id="popup-acquista-gel" class="popup">
+    <div class="popup-content" style="position:relative;">
+        <span class="close-popup" id="close-popup-gel">&times;</span>
+        <h2>Acquista il nuovo gel</h2>
+        <p>
+            Il nuovo gel autolivellante è disponibile in sette colorazioni nude.<br>
+            Contattaci per ricevere maggiori informazioni!
+        </p>
+        <a href="#contacts" class="btn-acquista" onclick="document.getElementById('popup-acquista-gel').style.display='none'">Contattaci</a>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var popupBtn = document.getElementById('popup-acquista-btn');
+    var popup = document.getElementById('popup-acquista-gel');
+    var closeBtn = document.getElementById('close-popup-gel');
+    // Rendi cliccabile anche il bottone "ACQUISTA ORA" nella versione mobile
+    var mobileBtns = document.querySelectorAll('.small-screen .btn');
+    if (popupBtn && popup && closeBtn) {
+        popupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            popup.style.display = 'flex';
+        });
+        closeBtn.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) popup.style.display = 'none';
+        });
+    }
+    // Aggiungi evento anche ai bottoni mobile
+    mobileBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            popup.style.display = 'flex';
+        });
+    });
+});
+</script>
   <div class="map-contatti-container">
     <!-- Contenitore della mappa -->
     <div class="map-container">
@@ -126,7 +169,7 @@
 
     <!-- Contenitore dei contatti -->
 <div id="contacts" class="contatti-container">
-    <div class="contatti-container">
+    <div class="contatti-container mobile-contacts-style">
         <h2>Contattaci</h2>
         <p>Per qualsiasi informazione, non esitare a contattarci!</p>
         <form id="contact-form">
