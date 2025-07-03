@@ -174,7 +174,7 @@ body {
     position: relative; /* Necessario per posizionare il testo sopra l'immagine */
     width: 100%; /* L'immagine occupa tutta la larghezza */
     max-width: 98%; /* Larghezza massima relativa */
-    margin: 20px auto; /* Centra il contenitore e aggiunge spazio sopra e sotto */
+    margin: 30px auto  ; /* Centra il contenitore e aggiunge spazio sopra e sotto */
     border-radius: 15px; /* Bordi arrotondati */
     overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
@@ -371,7 +371,7 @@ body {
 
 .about-container {
     background-color: #f5e8dc; /* Colore beige */
-    padding: 20px; /* Spaziatura interna */
+    padding: 78px 30px 70px 30px; /* Spaziatura interna */
     margin: 20px auto; /* Distacco dall'immagine e centratura */
     border-radius: 15px; /* Bordi arrotondati */
     max-width: 98%; /* Larghezza massima relativa */
@@ -393,10 +393,30 @@ body {
     width: 100%; /* L'immagine occupa tutta la larghezza del contenitore */
     height: auto; /* Mantiene le proporzioni */
     display: block; /* Rimuove eventuali spazi indesiderati sotto l'immagine */
+    transition: transform 1.5s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+    animation: zoom-inout 8s ease-in-out infinite alternate;
 }
+.grafica-section img:hover {
+    animation: none;
+    transform: scale(1.08);
+}
+
+@keyframes zoom-inout {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .prodotti-banner {
-    background-color: #a9a9a9; /* Colore grigio */
-    padding: 10px 20px; /* Spaziatura interna */
+    background-color: #b38f8f; /* Colore grigio */
+    padding: 20px 20px; /* Spaziatura interna */
     margin: 10px auto; /* Distacco dal resto del contenuto */
     border-radius: 15px; /* Bordi arrotondati */
     text-align: center; /* Centra il testo */
@@ -886,11 +906,265 @@ body {
     .footer-text {
         margin-bottom: -20px !important;
     }
-}
-
-/* Aumenta lo spazio bianco tra "CHI SONO" e il box principale su schermi piccoli */
-@media (max-width: 768px) {
-    .about-container {
-        margin-top: 40px !important;
+        margin-bottom: 10px !important;
+    }
+    .footer-text {
+        margin-bottom: -20px !important;
     }
 }
+
+/* Cookie consent popup */
+.popup-cookie {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(90, 45, 45, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: flex-start; /* popup in alto */
+    pointer-events: auto;
+}
+
+.popup-cookie-content {
+    background: rgba(255,255,255,0.97);
+    color: #5a2d2d;
+    border-radius: 15px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    padding: 24px 24px 16px 24px;
+    margin: 40px auto 0 auto; /* popup centrato orizzontalmente, in alto verticalmente */
+    max-width: 420px;
+    width: 95%;
+    text-align: center;
+    font-size: 2vh;
+    position: relative;
+    pointer-events: auto;
+}
+
+.popup-cookie-content .btn-acquista {
+    margin: 10px 8px 0 8px;
+    min-width: 90px;
+    font-size: 1.7vh;
+    background: #cd8585;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.popup-cookie-content .btn-acquista:hover {
+    background: #ad6e6e;
+    color: #fff;
+}
+
+.popup-cookie-content .cookie-link {
+    display: block;
+    margin-top: 16px;
+    color: #cd8585;
+    text-decoration: underline;
+    font-size: 1.7vh;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.popup-cookie-content .cookie-link:hover {
+    color: #5a2d2d;
+}
+
+/* Stile per la sezione informativa privacy che appare sopra il popup cookie */
+#cookie-privacy-info {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2100;
+    background: rgba(90, 45, 45, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+#cookie-privacy-info .privacy-content {
+    background: #fff;
+    color: #5a2d2d;
+    border-radius: 15px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    padding: 24px 18px 18px 18px;
+    max-width: 350px;
+    width: 92vw;
+    text-align: left;
+    font-size: 1.7vh;
+    position: relative;
+    z-index: 2110;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+#cookie-privacy-info .close-privacy {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #cd8585;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Effetto hover/click sui prodotti: sempre attivo su desktop e mobile */
+.prodotti-box {
+    position: relative;
+    overflow: hidden;
+}
+.prodotti-box img {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+    display: block;
+}
+.prodotti-box .hover-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Desktop: hover */
+@media (hover: hover) and (pointer: fine) {
+    .prodotti-box:hover img:not(.hover-img) {
+        transform: scale(1.07) translateY(-8px);
+        opacity: 0;
+    }
+    .prodotti-box:hover .hover-img {
+        opacity: 1;
+    }
+}
+
+/* Mobile: tap/click */
+@media (hover: none) and (pointer: coarse), (max-width: 1023px) {
+    .prodotti-box.active img:not(.hover-img) {
+        opacity: 0;
+        transform: scale(1.07) translateY(-8px);
+    }
+    .prodotti-box.active .hover-img {
+        opacity: 1;
+    }
+}
+
+/* Carousel prodotti mobile */
+@media (max-width: 1023px) {
+    .prodotti-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        width: 100%;
+        position: relative;
+    }
+    .prodotti-box {
+        min-width: 100%;
+        flex: 0 0 100%;
+        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        box-sizing: border-box;
+    }
+    .prodotti-box img {
+        max-width: 80%;
+        margin: 0 auto;
+        /* Riduci la dimensione delle immagini prodotto */
+    }
+    .prodotti-box .hover-img {
+        max-width: 80%;
+        left: 10%;
+        /* Allinea la hover image con la principale */
+    }
+    .descrizione {
+        font-size: 1.7vh;
+    }
+    .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 12px 0 24px 0;
+        gap: 16px;
+    }
+    .carousel-arrow {
+        background: #cd8585;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+    }
+    .carousel-arrow:disabled {
+        background: #eae7e5;
+        color: #aaa;
+        cursor: default;
+    }
+    .carousel-dots {
+        display: flex;
+        gap: 8px;
+    }
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #eae7e5;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        padding: 0;
+    }
+    .carousel-dot.active {
+        background: #cd8585;
+    }
+}
+
+/* Nascondi le frecce e i dots su schermi grandi */
+@media (min-width: 1024px) {
+    .carousel-controls {
+        display: none !important;
+    }
+}
+
+#prodotto-popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2200;
+    background: rgba(90, 45, 45, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+#prodotto-popup .popup-content {
+    background: #fff;
+    color: #5a2d2d;
+    border-radius: 15px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    padding: 32px 24px 24px 24px;
+    max-width: 350px;
+    width: 92vw;
+    text-align: left;
+    font-size: 1.7vh;
+    position: relative;
+}
+#prodotto-popup .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #cd8585;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+

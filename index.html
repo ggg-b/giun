@@ -69,45 +69,53 @@
     </section>
 
     <section class="prodotti">
-        <div class="prodotti-banner">
-            I PRODOTTI CHE TUTTI VOGLIONO
-        </section>
-        <section class="prodotti-grid">
-            <div class="prodotti-box">
-                <img src="Creme.jpg" alt="Descrizione immagine 1" />
-                <div class="descrizione">
-                    <h3>21€</h3>
-                    <p>CREMA IDRATANTE</p>
-                </div>
+    <div class="prodotti-banner">
+        I PRODOTTI CHE TUTTI VOGLIONO
+    </div>
+    <section class="prodotti-grid" id="prodotti-carousel">
+        <div class="prodotti-box">
+            <img src="Creme.jpg" alt="Descrizione immagine 1" />
+            <img class="hover-img" src="Creme-hover.jpg" alt="Immagine hover crema" />
+            <div class="descrizione">
+                <h3>21€</h3>
+                <p>CREMA IDRATANTE</p>
             </div>
-            <div class="prodotti-box">
-                <img src="Glitter.jpg" alt="Descrizione immagine 2" />
-                <div class="descrizione">
-                    <h3>12€</h3>
-                    <p>GLITTER TOP COAT</p>
-                </div>
+        </div>
+        <div class="prodotti-box">
+            <img src="Glitter.jpg" alt="Descrizione immagine 2" />
+            <img class="hover-img" src="Glitter-hover.jpg" alt="Immagine hover glitter" />
+            <div class="descrizione">
+                <h3>12€</h3>
+                <p>GLITTER TOP COAT</p>
             </div>
-            <div class="prodotti-box">
-                <img src="Oil.jpg" alt="Descrizione immagine 3" />
-                <div class="descrizione">
-                    <h3>18€</h3>
-                    <p>OLIO NUTRIENTE</p>
-                </div>
+        </div>
+        <div class="prodotti-box">
+            <img src="Oil.jpg" alt="Descrizione immagine 3" />
+            <img class="hover-img" src="Oil-hover.jpg" alt="Immagine hover olio" />
+            <div class="descrizione">
+                <h3>18€</h3>
+                <p>OLIO NUTRIENTE</p>
             </div>
-        </section>
-        <section class="prodotto">
-            <h3 class="frase-centrata">
-                <span class="full-text">
-                    "PRODOTTI INNOVATIVI: REALIZZATI NEI MIGLIORI LABORATORI MADE IN ITALY"
-                </span>
-                <span class="short-text">
-                    "PRODOTTI INNOVATIVI"
-                </span>
-            </h3>
-            <div class="btn-container">
-                <button id="acquista-btn" class="btn-acquista">ACQUISTA ORA</button>
-            </div>
-        </section>
+        </div>
+    </section>
+    <div class="carousel-controls">
+        <button class="carousel-arrow left" id="carousel-prev">&#8592;</button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+        <button class="carousel-arrow right" id="carousel-next">&#8594;</button>
+    </div>
+    <section class="prodotto">
+        <h3 class="frase-centrata">
+            <span class="full-text">
+                "PRODOTTI INNOVATIVI: REALIZZATI NEI MIGLIORI LABORATORI MADE IN ITALY"
+            </span>
+            <span class="short-text">
+                "PRODOTTI INNOVATIVI"
+            </span>
+        </h3>
+        <div class="btn-container">
+            <button id="acquista-btn" class="btn-acquista">ACQUISTA ORA</button>
+        </div>
+    </section>
 
 <!-- Pop-up acquisto gel -->
 <div id="popup-acquista-gel" class="popup">
@@ -121,34 +129,6 @@
         <a href="#contacts" class="btn-acquista" onclick="document.getElementById('popup-acquista-gel').style.display='none'">Contattaci</a>
     </div>
 </div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var popupBtn = document.getElementById('popup-acquista-btn');
-    var popup = document.getElementById('popup-acquista-gel');
-    var closeBtn = document.getElementById('close-popup-gel');
-    // Rendi cliccabile anche il bottone "ACQUISTA ORA" nella versione mobile
-    var mobileBtns = document.querySelectorAll('.small-screen .btn');
-    if (popupBtn && popup && closeBtn) {
-        popupBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            popup.style.display = 'flex';
-        });
-        closeBtn.addEventListener('click', function() {
-            popup.style.display = 'none';
-        });
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) popup.style.display = 'none';
-        });
-    }
-    // Aggiungi evento anche ai bottoni mobile
-    mobileBtns.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            popup.style.display = 'flex';
-        });
-    });
-});
-</script>
   <div class="map-contatti-container">
     <!-- Contenitore della mappa -->
     <div class="map-container">
@@ -202,8 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="close-popup">&times;</span>
         <h2>Privacy Policy</h2>
         <p>
-            Qui puoi inserire il contenuto completo della tua privacy policy. Spiega come vengono trattati i dati personali, 
-            per quali scopi e come gli utenti possono contattarti per ulteriori informazioni.
+           Ai sensi del Regolamento UE 2016/679 (“GDPR”), ti informo che i dati personali raccolti tramite questo modulo di contatto saranno utilizzati esclusivamente per rispondere alle tue richieste e non saranno ceduti a terzi. Il conferimento dei dati è facoltativo, ma necessario per ricevere una risposta. 
+           I dati saranno trattati con strumenti informatici e/o cartacei, adottando misure di sicurezza adeguate a tutelare la riservatezza e l’integrità delle informazioni. I dati saranno conservati solo per il tempo necessario a gestire la richiesta e successivamente cancellati.
+           In qualsiasi momento puoi esercitare i diritti previsti dagli articoli 15-22 del GDPR, tra cui l’accesso, la rettifica, la cancellazione, la limitazione o l’opposizione al trattamento, scrivendo a giulia.barbero.ci@gmail.com.
         </p>
     </div>
     </form>
@@ -216,5 +197,37 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</div>
 </footer>
   <script src="script.js" defer></script>
+
+<!-- Cookie consent popup -->
+<div id="cookie-popup" class="popup-cookie">
+  <div class="popup-cookie-content">
+    <p>Questo sito utilizza cookie tecnici e di terze parti per migliorare l’esperienza di navigazione.
+      <a href="#" class="cookie-link" id="cookie-privacy-link">Leggi l'informativa Cookie</a>
+    </p>
+    <button id="cookie-accept" class="btn-acquista">Accetta</button>
+    <button id="cookie-reject" class="btn-acquista">Rifiuta</button>
+  </div>
+</div>
+
+<!-- Pop-up informativa cookies -->
+<div id="cookie-privacy-info" style="display:none;">
+  <div class="privacy-content">
+    <button class="close-privacy" id="close-cookie-privacy">&times;</button>
+    <h2 style="font-weight:bold; text-align:center;">INFORMATIVA COOKIES</h2>
+    <p>
+      Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento delle pagine web. Non vengono utilizzati cookie di profilazione propri.<br><br>
+      <strong>Cosa sono i cookie?</strong><br>
+      I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva.<br><br>
+      <strong>Cookie tecnici</strong><br>
+      I cookie tecnici sono necessari per consentire la navigazione e il corretto funzionamento del sito. Senza questi cookie, alcune funzionalità potrebbero non essere disponibili.<br><br>
+      <strong>Cookie di terze parti</strong><br>
+      Il sito può utilizzare servizi di terze parti che potrebbero installare cookie per finalità statistiche in forma aggregata. Nessun dato personale viene profilato o utilizzato per finalità di marketing senza il tuo consenso.<br><br>
+      <strong>Gestione dei cookie</strong><br>
+      Puoi gestire le preferenze relative ai cookie direttamente dal banner presente sul sito. In qualsiasi momento puoi modificare la tua scelta cancellando i cookie dal tuo browser.<br><br>
+      <strong>Titolare del trattamento</strong><br>
+      Giulia Barbero - Per informazioni scrivere a giulia.barbero.ci@gmail.com.<br><br>
+    </p>
+  </div>
+</div>
 </body>
 </html>
