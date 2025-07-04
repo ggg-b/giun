@@ -228,3 +228,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === prodottoPopup) prodottoPopup.style.display = 'none';
     });
 });
+
+// Pop-up "Acquista ora" gel autolivellante
+document.addEventListener('DOMContentLoaded', function() {
+    const acquistaBtn = document.getElementById('acquista-btn');
+    const popupGel = document.getElementById('popup-gel');
+    const closeGelBtn = document.getElementById('close-popup-gel-btn');
+    if (acquistaBtn && popupGel && closeGelBtn) {
+        acquistaBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            popupGel.style.display = 'flex';
+        });
+        closeGelBtn.addEventListener('click', function() {
+            popupGel.style.display = 'none';
+        });
+        popupGel.addEventListener('click', function(e) {
+            if (e.target === popupGel) popupGel.style.display = 'none';
+        });
+    }
+});
