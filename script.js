@@ -1,80 +1,52 @@
-// Seleziona gli elementi del menu
-const menuToggle = document.getElementById('menu-toggle');
-const menuLinks = document.getElementById('menu-links');
-const links = document.querySelectorAll('.menu-links a');
-
-// Mostra/nasconde il menu quando si clicca sul toggle
-menuToggle.addEventListener('click', () => {
-    menuLinks.classList.toggle('active');
-});
-
-// Chiude il menu quando si clicca su un link
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        menuLinks.classList.remove('active');
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Menu mobile ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuLinks = document.getElementById('menu-links');
+    const links = document.querySelectorAll('.menu-links a');
+    menuToggle.addEventListener('click', () => {
+        menuLinks.classList.toggle('active');
     });
-});
-    // Gestisce il click sul bottone "Acquista"
-document.getElementById('acquista-btn').addEventListener('click', () => {
-    alert('Grazie per aver acquistato!'); // Mostra un messaggio di conferma
-    // Puoi aggiungere qui altre funzionalità, come il reindirizzamento
-    // window.location.href = 'pagina-acquisto.html'; // Esempio di reindirizzamento
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form");
-
-    form.addEventListener("submit", (event) => {
-        const privacyCheckbox = document.getElementById("privacy");
-
-        if (!privacyCheckbox.checked) {
-            event.preventDefault(); // Impedisce l'invio del modulo
-            alert("Devi accettare la privacy policy per procedere.");
-        }
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menuLinks.classList.remove('active');
+        });
     });
-});
-document.addEventListener("DOMContentLoaded", () => {
+
+    // --- Privacy popup ---
     const privacyLink = document.getElementById("privacy-link");
     const privacyPopup = document.getElementById("privacy-popup");
     const closePopup = document.querySelector(".close-popup");
+    if (privacyLink && privacyPopup && closePopup) {
+        privacyLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            privacyPopup.style.display = "flex";
+        });
+        closePopup.addEventListener("click", () => {
+            privacyPopup.style.display = "none";
+        });
+        window.addEventListener("click", (event) => {
+            if (event.target === privacyPopup) {
+                privacyPopup.style.display = "none";
+            }
+        });
+    }
 
-    // Mostra il pop-up quando si clicca sul link
-    privacyLink.addEventListener("click", (event) => {
-        event.preventDefault(); // Impedisce il comportamento predefinito del link
-        privacyPopup.style.display = "flex"; // Mostra il pop-up
-    });
-
-    // Chiudi il pop-up quando si clicca sulla "X"
-    closePopup.addEventListener("click", () => {
-        privacyPopup.style.display = "none"; // Nascondi il pop-up
-    });
-
-    // Chiudi il pop-up quando si clicca fuori dal contenuto
-    window.addEventListener("click", (event) => {
-        if (event.target === privacyPopup) {
-            privacyPopup.style.display = "none"; // Nascondi il pop-up
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Gestione chiusura popup cookie su accetta/rifiuta
+    // --- Cookie popup ---
     const cookiePopup = document.getElementById('cookie-popup');
     const cookieAccept = document.getElementById('cookie-accept');
     const cookieReject = document.getElementById('cookie-reject');
     if (cookiePopup && cookieAccept && cookieReject) {
-        // Mostra il popup cookie all'apertura del sito
         cookiePopup.style.display = 'flex';
-        
-
         function closeAndScrollTop() {
             cookiePopup.style.display = 'none';
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.body.style.overflow = ''; // Riabilita lo scroll
+            document.body.style.overflow = '';
         }
         cookieAccept.addEventListener('click', closeAndScrollTop);
         cookieReject.addEventListener('click', closeAndScrollTop);
     }
 
-    // Gestione apertura/chiusura popup informativa cookies
+    // --- Cookie privacy info popup ---
     const cookiePrivacyLink = document.getElementById('cookie-privacy-link');
     const cookiePrivacyInfo = document.getElementById('cookie-privacy-info');
     const closeCookiePrivacy = document.getElementById('close-cookie-privacy');
@@ -92,19 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Carousel prodotti mobile
+    // --- Carousel prodotti mobile ---
     function setupProdottiCarousel() {
         const grid = document.getElementById('prodotti-carousel');
         if (!grid) return;
         const boxes = Array.from(grid.querySelectorAll('.prodotti-box'));
         if (boxes.length <= 1) return;
-
         const dotsContainer = document.getElementById('carousel-dots');
         const prevBtn = document.getElementById('carousel-prev');
         const nextBtn = document.getElementById('carousel-next');
         let current = 0;
-
-        // Mostra solo il box corrente, nasconde gli altri (per evitare che manchi oil.jpg)
         function updateCarousel() {
             boxes.forEach((box, i) => {
                 if (i === current) {
@@ -122,13 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (prevBtn) prevBtn.disabled = current === 0;
             if (nextBtn) nextBtn.disabled = current === boxes.length - 1;
         }
-
         function goTo(idx) {
             current = Math.max(0, Math.min(idx, boxes.length - 1));
             updateCarousel();
         }
-
-        // Dots
         if (dotsContainer) {
             dotsContainer.innerHTML = '';
             boxes.forEach((_, i) => {
@@ -139,12 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 dotsContainer.appendChild(dot);
             });
         }
-
-        // Arrows
         if (prevBtn) prevBtn.onclick = () => goTo(current - 1);
         if (nextBtn) nextBtn.onclick = () => goTo(current + 1);
-
-        // Touch swipe
         let startX = null;
         grid.addEventListener('touchstart', function(e) {
             if (e.touches.length === 1) startX = e.touches[0].clientX;
@@ -157,8 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             startX = null;
         });
-
-        // Responsive: only on mobile
         function checkMobile() {
             if (window.innerWidth <= 1023) {
                 updateCarousel();
@@ -173,9 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
         checkMobile();
     }
     setupProdottiCarousel();
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Pop-up descrizione prodotto
+
+    // --- Popup descrizione prodotto ---
     const productDescriptions = {
         "CREMA IDRATANTE": {
             title: "Crema Idratante",
@@ -190,8 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
             text: "Olio nutriente per cuticole e unghie, favorisce la crescita e la salute dell'unghia. Da applicare quotidianamente per risultati ottimali."
         }
     };
-
-    // Crea il popup una sola volta
     let prodottoPopup = document.getElementById('prodotto-popup');
     if (!prodottoPopup) {
         prodottoPopup = document.createElement('div');
@@ -206,8 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.body.appendChild(prodottoPopup);
     }
-
-    // Mostra popup al click sulla descrizione
     document.querySelectorAll('.prodotti-box .descrizione').forEach(desc => {
         desc.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -219,12 +174,69 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Chiudi popup prodotto
     document.getElementById('close-prodotto-popup').addEventListener('click', function() {
         prodottoPopup.style.display = 'none';
     });
     prodottoPopup.addEventListener('click', function(e) {
         if (e.target === prodottoPopup) prodottoPopup.style.display = 'none';
     });
+
+    // --- Bottone Acquista Ora - Popup Gel Autolivellante ---
+    ['popup-acquista-btn-desktop', 'popup-acquista-btn-mobile'].forEach(function(btnId) {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+        let acquistaPopup = document.getElementById('acquista-popup');
+        if (!acquistaPopup) {
+            acquistaPopup = document.createElement('div');
+            acquistaPopup.id = 'acquista-popup';
+            acquistaPopup.className = 'popup';
+            acquistaPopup.style.display = 'none';
+            acquistaPopup.innerHTML = `
+                <div class="popup-content">
+                    <span class="close-popup" id="close-acquista-popup">&times;</span>
+                    <h2>Acquisto Gel Autolivellante</h2>
+                    <p>Grazie per il tuo interesse! Il nostro gel autolivellante garantisce una stesura perfetta e una durata eccezionale. Per completare l'acquisto, contattaci tramite il modulo o visita la nostra pagina dedicata.</p>
+                </div>
+            `;
+            document.body.appendChild(acquistaPopup);
+        }
+        function openAcquistaPopup(e) {
+            e.preventDefault();
+            acquistaPopup.style.display = 'flex';
+        }
+        btn.addEventListener('click', openAcquistaPopup);
+        btn.addEventListener('touchend', openAcquistaPopup);
+
+        acquistaPopup.addEventListener('click', function(e) {
+            if (
+                e.target === acquistaPopup ||
+                (e.target.id === 'close-acquista-popup')
+            ) {
+                acquistaPopup.style.display = 'none';
+            }
+        });
+    }
+});
+
+    // --- Mappa Google Maps ---
+    const mappa = document.getElementById('mappa');
+    if (mappa) {
+        const mapsUrl = 'https://www.google.com/maps?q=YOUR_ADDRESS_OR_COORDINATES';
+        mappa.style.cursor = 'pointer';
+        mappa.addEventListener('click', function () {
+            window.open(mapsUrl, '_blank');
+        });
+    }
+
+    // --- Form contatti ---
+    const form = document.getElementById("contact-form");
+    if (form) {
+        form.addEventListener("submit", (event) => {
+            const privacyCheckbox = document.getElementById("privacy");
+            if (!privacyCheckbox.checked) {
+                event.preventDefault();
+                alert("Devi accettare la privacy policy per procedere.");
+            }
+        });
+    }
 });

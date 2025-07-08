@@ -63,9 +63,8 @@ html {
     position: absolute;
     top: 60px; /* Posiziona sotto la barra */
     right: 10px; /* Allinea il menu a destra */
-    background-color: #a9a9a9; /* Sfondo bianco */
+    background-color: #5a2d2d; /* Sfondo bianco */
     border-radius: 15px; /* Bordi arrotondati */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Leggera ombra */
     padding: 20px; /* Spaziatura interna */
     z-index: 999; /* Porta il menu sopra gli altri elementi */
     width: 250px; /* Larghezza del menu */
@@ -91,7 +90,7 @@ html {
 }
 
 .menu-links li a:hover {
-    color: #5a2d2d; /* Cambia colore al passaggio del mouse */
+    color: #e0aeae; /* Cambia colore al passaggio del mouse */
 }
 
 /* Stile per il burger menu */
@@ -1180,32 +1179,4 @@ body {
     border: none;
 }
 
-/* Bottone rosa centrato per il secondo "ACQUISTA ORA" */
-.btn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px;
-    margin-bottom: 8px;
-}
-
-.btn-container .btn-acquista {
-    background: #ffffff;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    padding: 12px 32px;
-    font-size: 0%;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
-    margin: 0 auto;
-    display: inline-block;
-}
-
-.btn-container .btn-acquista:hover {
-    background: rgb(255, 255, 255);
-    color: #fff;
-}
 
