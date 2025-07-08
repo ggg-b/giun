@@ -287,9 +287,14 @@ body {
 /* Per schermi grandi (PC) */
 @media (min-width: 1024px) {
     .image-text-container {
-        position: relative; /* Necessario per posizionare il testo sopra l'immagine */
-        margin: 0 auto; /* Centra il contenitore */
-        max-width: 100%; /* L'immagine occupa tutta la larghezza */
+       display: flex;
+        flex-direction: column;
+        align-items: center;    /* Centra orizzontalmente il contenitore */
+        justify-content: center;/* Centra verticalmente se necessario */
+        max-width: 100%;
+        width: 100vw;
+        margin: 0 auto;
+        padding: 0;
     }
 
     .text-overlay {
@@ -325,17 +330,26 @@ body {
         margin-top: 10px; /* Spaziatura sopra il pulsante */
     }
 
-    .image-box {
-        position: relative; /* Mantiene il posizionamento relativo */
-        width: 98%; /* L'immagine occupa tutta la larghezza */
-        height: 80vh; /* L'immagine occupa tutta l'altezza dello schermo */
-        overflow: hidden; /* Nasconde eventuali parti dell'immagine che escono dai bordi */
+    .image-box.large-screen {
+        width: 98%;
+        height: auto%;
+        max-width: 98vw;
+        margin: 0 auto;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+         display: flex;
+        justify-content: center;
+        align-items: center;
     }
-
-    .image-box img {
-        width: 100%; /* L'immagine occupa tutta la larghezza */
-        height: 100%; /* L'immagine occupa tutta l'altezza */
-        object-fit: cover; /* Adatta l'immagine senza distorcerla */
+    .image-box.large-screen img {
+       width: 100%;
+        height: 83vh;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        border-radius: 15px;
     }
 }
 
@@ -370,7 +384,7 @@ body {
 
 .about-container {
     background-color: #f5e8dc; /* Colore beige */
-    padding: 78px 30px 70px 30px; /* Spaziatura interna */
+    padding: 70px 30px 70px 30px; /* Spaziatura interna */
     margin: 20px auto; /* Distacco dall'immagine e centratura */
     border-radius: 15px; /* Bordi arrotondati */
     max-width: 98%; /* Larghezza massima relativa */
