@@ -1249,42 +1249,116 @@ body {
 /* ...existing code... */
 .footer-text {
     text-align: center;
-    padding: 22px 10px 22px 10px; /* Più alto e più spazio ai lati */
+    padding: 22px 10px 22px 10px;
     background-color: #e2dede;
     color: #5a2d2d;
-    font-size: 2vh; /* Più grande e responsive */
+    font-size: 2vh;
     border-radius: 15px;
     max-width: 98%;
-    margin: 30px auto 0 auto; /* Solo margine sopra, niente negativo sotto */
+    margin: 30px auto 0 auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Spazio sotto il footer su tutti i dispositivi */
-body {
-    padding-bottom: 40px; /* Spazio extra sotto il footer */
+.footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
-/* Responsive: footer più grande su mobile */
+.footer-logo {
+    height: 60px;
+    width: auto;
+    padding: 4px;
+}
+
+.footer-info {
+    text-align: left;
+    font-size: 1.8vh;
+    line-height: 1.5;
+}
+
+.footer-info a {
+    color: #5a2d2d;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.footer-info a:hover {
+    color: #cd8585;
+}
+
 @media (max-width: 768px) {
-    .footer-text {
-        font-size: 2.1vh;           /* Riduci la dimensione del testo */
-        padding: 18px 4vw 18px 4vw; /* Riduci il padding */
-        margin-bottom: 0;
-        white-space: nowrap;        /* Mantieni il testo su una sola riga */
-        overflow: hidden;           /* Nascondi eventuale overflow */
-        text-overflow: ellipsis;    /* Aggiungi "..." se il testo è troppo lungo */
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
-    body {
-        padding-bottom: 24px;
+    .footer-logo {
+        height: 38px;
+        margin-bottom: 4px;
+    }
+    .footer-info {
+        font-size: 1.5vh;
+        text-align: center;
+    }
+    .footer-text {
+        font-size: 1.7vh;
+        padding: 14px 2vw 14px 2vw;
+        white-space: normal;
     }
 }
-@media (max-width: 480px) {
-    .footer-text {
-        font-size: 2.3vh;
-        padding: 14px 2vw 14px 2vw;
-    }
-    body {
-        padding-bottom: 16px;
-    }
+
+body {
+    padding-bottom: 40px; /* Spazio sotto il footer su tutti i dispositivi */
 }
 /* ...existing code... */
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 24px; /* Spazio leggermente minore su mobile */
+    }
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px; /* solo spazio, nessun trattino */
+    margin: 10px 0 0 0;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border: none; /* nessun bordo */
+    background: none;
+}
+
+.footer-social img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(205,133,133,0.08);
+    object-fit: cover;
+    border: none; /* nessun bordo */
+}
+
+.footer-social a:hover img {
+    transform: scale(1.12);
+    box-shadow: 0 2px 8px rgba(205,133,133,0.18);
+}
+
+@media (max-width: 768px) {
+    .footer-social {
+        gap: 12px;
+    }
+    .footer-social img {
+        width: 24px;
+        height: 24px;
+    }
+}
