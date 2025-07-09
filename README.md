@@ -1,4 +1,4 @@
-# SitoPersonale
+# SitoPersonale | Giun
 # Github -> netlify boilerplate
 
 Esempio di pubblicazione da GitHub a Netlify
@@ -17,3 +17,9 @@ Il repository è pubblicato a questo indirizzo
 
 ## Scopo del progetto
 Progettare e realizzare una landing page moderna, funzionale e visivamente impattante, studiata per guidare l’utente attraverso un’esperienza fluida e coinvolgente, ottimizzata per i diversi dispositivi e orientata alla conversione. 
+
+## Validatore w3c
+[https://validator.w3.org/nu/?doc=https%3A%2F%2Fgithub-netlify-boilerplate.netlify.app](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgithub-netlify-boilerplate.netlify.app)
+
+## Informazioni
+Materiale in italiano propedeutico alla realizzazione del corso di WebDesign per 
