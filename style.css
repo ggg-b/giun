@@ -239,29 +239,39 @@ body {
     }
 }
 
+@media (min-width: 769px) and (max-width: 1023px) {
+    .image-box {
+        margin-bottom: 10px; /* Più spazio sotto la prima immagine */
+    }
+    .about-container {
+        margin-top: 0;      /* Elimina eventuale spazio sopra */
+        padding-top: 10px;  /* Più spazio interno sopra il contenuto */
+    }
+}
+
 /* Testo sovrapposto all'immagine */
 .text-overlay {
     position: absolute; /* Posiziona il testo sopra l'immagine */
     top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra orizzontalmente */
+    left: 27%; /* Centra orizzontalmente */
     transform: translate(-50%, -50%); /* Centra il testo rispetto al contenitore */
     text-align: center; /* Centra il testo */
     color: #fff; /* Colore del testo bianco */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombra per il testo */
-    padding: 20px; /* Spaziatura interna */
+    padding: 25px; /* Spaziatura interna */
     background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
     border-radius: 15px; /* Bordi arrotondati */
 }
 
 /* Stile per il sottotitolo */
 .text-overlay .subtitle {
-    font-size: 2vh; /* Font più piccolo per il sottotitolo */
+    font-size: 1.8vh; /* Font più piccolo per il sottotitolo */
     margin-bottom: 10px; /* Spaziatura sotto il sottotitolo */
 }
 
 /* Stile per il titolo */
 .text-overlay .title {
-    font-size: 3vh; /* Font più grande per il titolo */
+    font-size: 2vh; /* Font più grande per il titolo */
     font-weight: bold;
     margin-bottom: 20px; /* Spaziatura sotto il titolo */
 }
@@ -352,6 +362,7 @@ body {
         border-radius: 15px;
     }
 }
+
 
 /* Layout per schermi piccoli */
 @media (max-width: 768px) {
@@ -1089,6 +1100,7 @@ body {
     }
 }
 
+
 /* Effetto hover/click sui prodotti: sempre attivo su desktop e mobile */
 .prodotti-box {
     position: relative;
@@ -1203,6 +1215,23 @@ body {
     }
     .carousel-dot.active {
         background: #cd8585;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    .prodotti-box img {
+        max-width: 40%;
+        margin: 0 auto;
+    }
+    .prodotti-box {
+        margin-bottom: 10px;
+    }
+    .descrizione {
+        font-size: 1.5vh;
+        padding: 8px 10px;
+    }
+    .prodotti-grid {
+        gap: 12px;
     }
 }
 
